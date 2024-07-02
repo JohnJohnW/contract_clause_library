@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/contract_clause_library/static/css/main.0a5daaf4.css",
+    "main.js": "/contract_clause_library/static/js/main.51a28a42.js",
+    "index.html": "/contract_clause_library/index.html",
+    "main.0a5daaf4.css.map": "/contract_clause_library/static/css/main.0a5daaf4.css.map",
+    "main.51a28a42.js.map": "/contract_clause_library/static/js/main.51a28a42.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0a5daaf4.css",
+    "static/js/main.51a28a42.js"
+  ]
+}
