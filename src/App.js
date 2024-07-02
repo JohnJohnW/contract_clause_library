@@ -1,6 +1,5 @@
-// App.js
 import React, { useState, useEffect } from 'react';
-import { Route, Routes, useParams } from 'react-router-dom';
+import { Routes, Route, useParams } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import ClauseList from './ClauseList';
 import Sidebar from './Sidebar';
@@ -19,6 +18,7 @@ const App = () => {
 
   useEffect(() => {
     setFilteredClauses(clausesData);
+    console.log('Initial Clauses:', clausesData);
   }, []);
 
   useEffect(() => {
@@ -34,6 +34,7 @@ const App = () => {
   };
 
   const filterClauses = () => {
+    console.log('Filtering with category:', category, 'and query:', query);
     const fuse = new Fuse(clausesData, { keys: ['title', 'definition', 'text'] });
     let results = query ? fuse.search(query).map(result => result.item) : clausesData;
 
@@ -42,6 +43,7 @@ const App = () => {
     }
 
     setFilteredClauses(results);
+    console.log('Filtered Results:', results);
   };
 
   const createNewDocument = () => {

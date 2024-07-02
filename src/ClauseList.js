@@ -1,4 +1,3 @@
-// ClauseList.js
 import React from 'react';
 import ClauseItem from './ClauseItem';
 

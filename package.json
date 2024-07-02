@@ -2,6 +2,7 @@
   "name": "contract-clause-library",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://JohnJohnW.github.io/contract_clause_library",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -9,10 +10,10 @@
     "docx": "^8.5.0",
     "file-saver": "^2.0.5",
     "fuse.js": "^7.0.0",
-    "react": "^18.3.1",
+    "react": "^18.2.0",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
-    "react-dom": "^18.3.1",
+    "react-dom": "^18.2.0",
     "react-icons": "^5.2.1",
     "react-router-dom": "^6.24.0",
     "react-scripts": "5.0.1",
@@ -22,7 +23,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -41,5 +44,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
   }
 }
