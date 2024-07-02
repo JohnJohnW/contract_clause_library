@@ -1,4 +1,3 @@
-// WordDocument.js
 import React, { useState } from 'react';
 import { useDrop } from 'react-dnd';
 import { Document, Packer, Paragraph, TextRun, HeadingLevel } from 'docx';
@@ -19,7 +18,12 @@ const WordDocument = ({ document, setDocument }) => {
   }));
 
   const addClauseToDocument = (clause) => {
-    setDocument((prevDocument) => [...prevDocument, clause]);
+    setDocument((prevDocument) => {
+      if (prevDocument.some(item => item.id === clause.id)) {
+        return prevDocument; // Avoid adding duplicate clauses
+      }
+      return [...prevDocument, { ...clause, id: `${clause.id}-${Date.now()}` }]; // Ensure unique IDs
+    });
   };
 
   const moveClause = (fromIndex, toIndex) => {
@@ -31,8 +35,8 @@ const WordDocument = ({ document, setDocument }) => {
     });
   };
 
-  const removeClauseFromDocument = (clause) => {
-    setDocument((prevDocument) => prevDocument.filter((item) => item.id !== clause.id));
+  const removeClauseFromDocument = (clauseId) => {
+    setDocument((prevDocument) => prevDocument.filter((item) => item.id !== clauseId));
   };
 
   const generateWordDocument = () => {
@@ -96,12 +100,12 @@ const WordDocument = ({ document, setDocument }) => {
         className="document-title-input"
       />
       {document.map((clause, index) => (
-        <DocumentClauseItem key={index} clause={clause} index={index} moveClause={moveClause} />
+        <DocumentClauseItem key={clause.id} clause={clause} index={index} moveClause={moveClause} />
       ))}
       <button onClick={generateWordDocument} className="add-clause-btn">
         Generate Word Document
       </button>
-      <TrashBin onDrop={removeClauseFromDocument} />
+      <TrashBin onDrop={(clause) => removeClauseFromDocument(clause.id)} />
     </div>
   );
 };
