@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/contract_clause_library/static/css/main.0a5daaf4.css",
-    "main.js": "/contract_clause_library/static/js/main.f3725d81.js",
+    "main.js": "/contract_clause_library/static/js/main.223eedb8.js",
     "index.html": "/contract_clause_library/index.html",
     "main.0a5daaf4.css.map": "/contract_clause_library/static/css/main.0a5daaf4.css.map",
-    "main.f3725d81.js.map": "/contract_clause_library/static/js/main.f3725d81.js.map"
+    "main.223eedb8.js.map": "/contract_clause_library/static/js/main.223eedb8.js.map"
   },
   "entrypoints": [
     "static/css/main.0a5daaf4.css",
-    "static/js/main.f3725d81.js"
+    "static/js/main.223eedb8.js"
   ]
 }
