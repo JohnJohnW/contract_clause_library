@@ -9,17 +9,17 @@ import './App.css';
 const WordDocument = ({ document, setDocument }) => {
   const [title, setTitle] = useState('');
 
-  const [{ isOver }, drop] = useDrop(() => ({
+  const [{ isOver }, drop] = useDrop({
     accept: 'clause',
     drop: (item) => addClauseToDocument(item.clause),
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
     }),
-  }));
+  });
 
   const addClauseToDocument = (clause) => {
     setDocument((prevDocument) => {
-      if (prevDocument.some(item => item.id === clause.id)) {
+      if (prevDocument.some((item) => item.id === clause.id)) {
         return prevDocument; // Avoid adding duplicate clauses
       }
       return [...prevDocument, { ...clause, id: `${clause.id}-${Date.now()}` }]; // Ensure unique IDs
@@ -36,7 +36,9 @@ const WordDocument = ({ document, setDocument }) => {
   };
 
   const removeClauseFromDocument = (clauseId) => {
-    setDocument((prevDocument) => prevDocument.filter((item) => item.id !== clauseId));
+    setDocument((prevDocument) =>
+      prevDocument.filter((item) => item.id !== clauseId)
+    );
   };
 
   const generateWordDocument = () => {
@@ -53,10 +55,10 @@ const WordDocument = ({ document, setDocument }) => {
                 }),
               ],
               heading: HeadingLevel.TITLE,
-              alignment: "center",
+              alignment: 'center',
             }),
             new Paragraph({
-              text: "\n\n\n",
+              text: '\n\n\n',
             }),
             ...document.flatMap((clause) => [
               new Paragraph({
@@ -90,7 +92,11 @@ const WordDocument = ({ document, setDocument }) => {
   };
 
   return (
-    <div className="word-document" ref={drop} style={{ borderColor: isOver ? 'lightgreen' : '#555', position: 'relative' }}>
+    <div
+      className="word-document"
+      ref={drop}
+      style={{ borderColor: isOver ? 'lightgreen' : '#555', position: 'relative' }}
+    >
       <h3>Word Document</h3>
       <input
         type="text"
@@ -100,7 +106,12 @@ const WordDocument = ({ document, setDocument }) => {
         className="document-title-input"
       />
       {document.map((clause, index) => (
-        <DocumentClauseItem key={clause.id} clause={clause} index={index} moveClause={moveClause} />
+        <DocumentClauseItem
+          key={clause.id}
+          clause={clause}
+          index={index}
+          moveClause={moveClause}
+        />
       ))}
       <button onClick={generateWordDocument} className="add-clause-btn">
         Generate Word Document
