@@ -4,21 +4,21 @@
 
 ClauseVault is an educational legal-tech tool for browsing, searching, and assembling contract clauses drafted for Australian commercial agreements. Built with Next.js 16, Tailwind CSS v4, and static TypeScript data — no database required.
 
-**⚠️ Legal Disclaimer:** This resource does not constitute legal advice. All clause samples are for general educational purposes only. Always consult a qualified legal practitioner before using any clause in a binding agreement.
+**Legal Disclaimer:** This resource does not constitute legal advice. All clause samples are for general educational purposes only. Always consult a qualified legal practitioner before using any clause in a binding agreement.
 
 ---
 
 ## Features
 
-- 📚 **90 clauses** across 15 categories, drafted for Australian law
-- 🔍 **Full-text search** across titles, summaries, keywords, and categories
-- 🗂️ **Category filtering** with colour-coded category badges
-- 📄 **Clause detail pages** with sample text, drafting notes, and Australian law context
-- 🏗️ **Drag-and-drop Document Builder** — reorder clauses, edit text inline
-- 📥 **DOCX export** — download assembled documents with legal disclaimer footer
-- 💾 **localStorage persistence** — builder state survives page refresh
-- 📱 **Mobile responsive** — collapsible sidebar with hamburger menu
-- ⚡ **Fully static** — 111 pre-rendered pages, no backend needed
+- **90 clauses** across 15 categories, drafted for Australian law
+- **Full-text search** across titles, summaries, keywords, and categories
+- **Category filtering** with colour-coded category badges
+- **Clause detail pages** with sample text, drafting notes, and Australian law context
+- **Drag-and-drop Document Builder** — reorder clauses, edit text inline
+- **DOCX export** — download assembled documents with legal disclaimer footer
+- **localStorage persistence** — builder state survives page refresh
+- **Mobile responsive** — collapsible sidebar with hamburger menu
+- **Fully static** — 111 pre-rendered pages, no backend needed
 
 ---
 
@@ -64,7 +64,7 @@ graph TD
     B -->|Static Props| C[TypeScript Data Layer]
     C --> D[15 Category Files<br/>90 Clauses Total]
     B --> E[Client Components]
-    E -->|Drag & Drop| F[@dnd-kit]
+    E -->|Drag and Drop| F[dnd-kit]
     E -->|Export| G[docx + file-saver]
     E -->|Persist State| H[localStorage]
     B --> I[111 Static Pages]
